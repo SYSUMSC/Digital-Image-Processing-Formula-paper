@@ -15,7 +15,7 @@
 连续 $f(t) = integral_(-infinity)^infinity F(mu) e^(j 2 pi mu t) d mu quad F(mu) = integral_(-infinity)^infinity$ ; $f(t) e^(-j 2 pi mu t) d t$\
 
 离散 $u,x in [0,M-1]$ \
-$F(u) = sum_(x = 0)^(M - 1) f(x) e^(-j 2 pi u x \/ M)$ ; $f(x) = frac(1, M) sum_(x = 0)^(M - 1) F(u) e^(j 2 pi u x \/ M)$
+$F(u) = sum_(x = 0)^(M - 1) f(x) e^(-j 2 pi u x \/ M)$ ; $f(x) = frac(1, M) sum_(u = 0)^(M - 1) F(u) e^(j 2 pi u x \/ M)$
 
 == 二变量函数的傅里叶变换
 
