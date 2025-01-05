@@ -19,7 +19,9 @@ $F(u) = sum_(x = 0)^(M - 1) f(x) e^(-j 2 pi u x \/ M)$ ; $f(x) = frac(1, M) sum_
 
 $sum_(k = 0)^(n - 1) e^(-i 2 pi frac(m k, n)) =brace.l
 mat(delim: #none, n comma, "如果 " m equiv 0(upright(m o d) n);
-0 comma, "否则",,)$;$integral_(-infinity)^(+infinity) e^(-x^2) d x = sqrt(pi)$
+0 comma, "否则",,)$;$integral_(-infinity)^(+infinity) e^(-x^2) d x = sqrt(pi)$ ; $sum_(x = 0)^(M - 1) e^(-j frac(2 pi k x, M)) = M delta(k)$ \
+$delta(k, l) = delta(k) dot.op delta(l)
+$ ; $sum_(x = 0)^(M - 1) sum_(y = 0)^(N - 1) e^(-j(frac(2 pi k x, M) + frac(2 pi l y, N))) = M N delta(k, l)$
 
 
 == 二变量函数的傅里叶变换
