@@ -155,20 +155,20 @@ X_4 = X_1 union X_3 $  | $ X_4$是裁剪集合 $ A$ 后的结果。结构元(V)�
 补集  $A^c = {w divides w in.not A}$ 不属于 $A$ 的点集\
 差集  $A - B = {w divides w in A, w in.not B} = A sect.big B^c$ 属于 $A$ 但不属于 $B$ 的点集
 
-腐蚀  $A minus.circle B = {z divides (B)_z subset.eq A} = {z divides (B)_z sect A^c = nothing}$ 腐蚀 $A$ 的边界(I);能缩小、细化二值图像中的目标\
-膨胀  $A xor B = {z divides (hat(B))_z sect A eq.not diameter}$ 膨胀 $A$ 的边界(I);可修复图像中的断裂字符\
+*腐蚀*  $A minus.circle B = {z divides (B)_z subset.eq A} = {z divides (B)_z sect A^c = nothing}$ 腐蚀 $A$ 的边界(I);能缩小、细化二值图像中的目标\
+*膨胀*  $A xor B = {z divides (hat(B))_z sect A eq.not diameter}$ 膨胀 $A$ 的边界(I);可修复图像中的断裂字符\
 对偶性  $(A minus.circle B)^c = A^c xor hat(B);  (A xor B)^c = A^c minus.circle hat(B)$
 
-开运算 $A circle.stroked.tiny B = (A minus.circle B) xor B =union.big {(B)_z \| (B)_z subset.eq A}$ 平滑轮廓，断开狭窄区域，删除小孤岛和尖刺(I);幂等律;当B在A的边界*内侧*滚动时，B所能到达的A的边界的最远点;B的所有平移的并集。\
-闭运算 $A bullet B = (A xor B) minus.circle B \= [ union.big {(B)_z|(B)_z sect A = nothing} ]^c$ 平滑轮廓，弥合狭窄断裂和细长沟道，删除小孔洞(I);幂等律;当B在A的边界*外侧*滚动时，B所能到达的A的边界的最远点;B的所有不与A重叠的平移的并集的补集。\
+*开运算* $A circle.stroked.tiny B = (A minus.circle B) xor B =union.big {(B)_z \| (B)_z subset.eq A}$ 平滑轮廓，断开狭窄区域，删除小孤岛和尖刺(I);幂等律;当B在A的边界*内侧*滚动时，B所能到达的A的边界的最远点;B的所有平移的并集。\
+*闭运算* $A bullet B = (A xor B) minus.circle B \= [ union.big {(B)_z|(B)_z sect A = nothing} ]^c$ 平滑轮廓，弥合狭窄断裂和细长沟道，删除小孔洞(I);幂等律;当B在A的边界*外侧*滚动时，B所能到达的A的边界的最远点;B的所有不与A重叠的平移的并集的补集。\
 对偶性  $(A circle.stroked.tiny B)^c = A^c bullet hat(B);(A bullet B)^c = A^c circle.stroked.tiny hat(B)$
 
-击中与击不中 $I ast.circle B_(1, 2) = {z divides (B_1)_z subset.eq A and (B_2)_z subset.eq A^c}=(A minus.circle B_1) sect.big(A^c minus.circle B_2)$ 前景中检测形状的 B1，在背景中检测形状的 B2同时满足的保留
+*击中与击不中* $I ast.circle B_(1, 2) = {z divides (B_1)_z subset.eq A and (B_2)_z subset.eq A^c}=(A minus.circle B_1) sect.big(A^c minus.circle B_2)$ 前景中检测形状的 B1，在背景中检测形状的 B2同时满足的保留
 
-边界提取 $beta (A) = A - (A minus.circle B)$ 提取集合 $A$ 的边界上的点集(I)\
-孔洞填充 $X_k = (X_(k - 1) xor B) sect.big I^c , quad k = 1 , 2 , 3 , dots.h.c$ 填充 $A$ 中的孔洞， $X_0$ 初始化为 $I$ 边框(I)\
-提取连通分量 $X_k = (X_(k - 1) xor B) sect I , quad k = 1 , 2 , 3 , dots.h.c$ 寻找 $I$ 中的连通分量(I)\
-凸壳  $X_k^i = (X_(k - 1)^i ast.circle B^i) union.big X_(k - 1)^i , i = 1,2,3,4$ 计算 $I$ 中前景像素的凸壳(I)\
+*边界提取* $beta (A) = A - (A minus.circle B)$ 提取集合 $A$ 的边界上的点集(I)\
+*孔洞填充* $X_k = (X_(k - 1) xor B) sect.big I^c , quad k = 1 , 2 , 3 , dots.h.c$ 填充 $A$ 中的孔洞， $X_0$ 初始化为 $I$大小,在每个孔洞中填充1.在其他位置填充 0\
+*提取连通分量* $X_k = (X_(k - 1) xor B) sect I , quad k = 1 , 2 , 3 , dots.h.c$ 寻找 $I$ 中的连通分量(I)\
+*凸壳*  $X_k^i = (X_(k - 1)^i ast.circle B^i) union.big X_(k - 1)^i , i = 1,2,3,4$ 计算 $I$ 中前景像素的凸壳(I)\
 //PPT写（了解）
 细化  $A times.circle B = A - (A ast.circle B)$ 细化集合 $A$ ，移除多余分支(I)\
 粗化  $A dot.circle B = A union.big (A ast.circle B)$ 使用结构元粗化集合 $A$ (I)\
