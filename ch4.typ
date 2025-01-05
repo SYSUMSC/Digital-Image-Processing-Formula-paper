@@ -33,20 +33,20 @@ IDFT：$f(x, y) = frac(1, M N) sum_(u = 0)^(M - 1) sum_(v = 0)^(N - 1) F(u, v) e
 
 === 二维DFT和IDFT性质
 //表4.3
-谱 $lr(|F(u comma nu)|) = [ R^2 (u, nu) + I^2 (u, nu) ]^(1 \/ 2))$ 相角$phi.alt(u, v) = arctan  [ frac(I(u comma v), R(u comma v))  ]$ R实部,I虚部\
-极坐标 $F(u comma nu) = lr(|F(u comma nu)|) e^(j phi.alt(u, v)) $\
+*谱* $lr(|F(u comma nu)|) = [ R^2 (u, nu) + I^2 (u, nu) ]^(1 \/ 2))$ 相角$phi.alt(u, v) = arctan  [ frac(I(u comma v), R(u comma v))  ]$ R实部,I虚部\
+*极坐标* $F(u comma nu) = lr(|F(u comma nu)|) e^(j phi.alt(u, v)) $\
 周期性(k为整数) $F(u, v) = F(u + k_1 M, v + k_2 N)$ \ $f(x, y) = f(x + k_1 M, y + k_2 N)$
 
-卷积 $(f star h)(x, y) = sum_(m = 0)^(M - 1) sum_(n = 0)^(N - 1) f(m, n) h(x - m, y - n)$
+*卷积* $(f star h)(x, y) = sum_(m = 0)^(M - 1) sum_(n = 0)^(N - 1) f(m, n) h(x - m, y - n)$
 
-相关 $(f star.stroked h)(x, y) = sum_(m = 0)^(M - 1) sum_(n = 0)^(N - 1) f^* (m, n) h(x + m, y + n)$
+*相关* $(f star.stroked h)(x, y) = sum_(m = 0)^(M - 1) sum_(n = 0)^(N - 1) f^* (m, n) h(x + m, y + n)$
 
-使用DFT算法求IDFT $M N f^* (x, y) = sum_(u = 0)^(M - 1) sum_(v = 0)^(N - 1) F^* (u, v) upright(e)^(-upright(j) 2 pi(u x \/ M + nu y \/ N))$ 结果取复共轭并除以MN就可得到反变换\
+*使用DFT算法求IDFT* $M N f^* (x, y) = sum_(u = 0)^(M - 1) sum_(v = 0)^(N - 1) F^* (u, v) upright(e)^(-upright(j) 2 pi(u x \/ M + nu y \/ N))$ 结果取复共轭并除以MN就可得到反变换; *共轭对称性*$F(-u, - v) = F^* (u, v)$\
 //表4.4
-离散单位冲激 $delta(x, y) arrow.l.r.double 1, 1 arrow.l.r.double M N delta(u, v)$\
-卷积定理$(f star h)(x, y) arrow.l.r.double(F dot.op H)(u, v) || (f dot.op h)(x, y) arrow.l.r.double frac(1, M N)(F star H)(u, v)$
+*离散单位冲激* $delta(x, y) arrow.l.r.double 1, 1 arrow.l.r.double M N delta(u, v)$\
+*卷积定理*$(f star h)(x, y) arrow.l.r.double(F dot.op H)(u, v) || (f dot.op h)(x, y) arrow.l.r.double frac(1, M N)(F star H)(u, v)$
 
-平移性 $f(x, y) upright(e)^(upright(j) 2 pi(u_0 x \/ M + v_0 y \/ N)) arrow.l.r.double F(u - u_0, v - v_0) $ \ $f(x - x_0, y - y_0) arrow.l.r.double F(u, v) upright(e)^(-upright(j) 2 pi(u x_0 \/ M + nu y_0 \/ N))$\
+*平移性* $f(x, y) upright(e)^(upright(j) 2 pi(u_0 x \/ M + v_0 y \/ N)) arrow.l.r.double F(u - u_0, v - v_0) $ \ $f(x - x_0, y - y_0) arrow.l.r.double F(u, v) upright(e)^(-upright(j) 2 pi(u x_0 \/ M + nu y_0 \/ N))$\
 $delta(x - a, y - b) arrow.l.r.double e^(-j 2 pi(u a + v b))$
 
 == 频率域滤波
