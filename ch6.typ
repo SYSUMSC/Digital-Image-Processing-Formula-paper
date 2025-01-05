@@ -28,7 +28,7 @@ CMYK->CMY: $C = C(1 - K) + K; M = M(1 - K) + K; Y = Y(1 - Y) + K$
 === HSI
 针对人们描述和解释颜色的方式开发，解除了亮度和色彩信息的联系;
 h色调(角度),s饱和度(鲜艳程度),i强度(颜色的明暗程度,平均灰度)
-#image("./img/hsi.png",height: 5%)
+#image("./img/hsi.png",height: 10%)
 
 RGB->HSI\
 $theta=arccos(frac((R - G) +(R - B), 2 sqrt((R - G)^2 +(R - B)(G - B))))$ $H = cases(360 - theta  && G<B, theta & G>=B)$\
@@ -52,6 +52,7 @@ $& H' = H - 240^circle.small \
 
 === CIE LAB
 基于人眼视觉感知的模型，不依赖于具体的设备（如显示器、打印机等），因此可以在不同设备之间保持颜色的一致性。\
+$X_w = 0.95047,   Y_w = 1.000,  Z_w = 1.08883$\
 $L_star = 116 * h(Y / Y_W) - 16$;$a_star = 500 * [h(X / X_W) - h(Y / Y_W)]$;$b_star = 200 * [h(Y / Y_W) - h(Z / Z_W)]$\
 $h(q) = cases((3 / 2) * q^(1/3)&q > 0.008856 ,7.787 * q + 16 / 116 &  q <= 0.008856
 )$\

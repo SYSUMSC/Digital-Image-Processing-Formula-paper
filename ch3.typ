@@ -147,7 +147,7 @@ f(x comma y) + nabla^2 f(x comma y) comma, "当拉普拉斯滤波中心系数为
 k=1为钝化掩蔽 k>1为高提升滤波 k\<1不强调钝化模板的贡献
 ===   低通、高通、带阻和带通滤波器
 
-#image("./img/lbq.png",height: 5%)
+// #image("./img/lbq.png",height: 5%)
 单位冲激中心和滤波器核中心重合\
 低通 $l p(x comma y)$，高通 $h p(x comma y) = delta(x comma y) - l p(x comma y)$\
 带阻 $b r(x comma y) = l p_1 (x comma y) + h p_2 (x comma y), = l p_1 (x comma y) + [ delta(x comma y) - h p_2 (x comma y) ]$，带通 $b p(x comma y) = delta(x comma y) - b r(x comma y) = delta(x comma y) - [ l p_1 (x comma y) + [ delta(x comma y) - l p_2 (x comma y) ] ]$

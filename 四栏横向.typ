@@ -6,7 +6,7 @@
 )
 
 //调整字体大小以适应四栏布局
-#set text(0.632em)  // 由于分成四栏，字体稍微调小一些
+#set text(0.636em)  // 由于分成四栏，字体稍微调小一些
 
 //伪粗体设置
 #import "@preview/cuti:0.2.1": show-cn-fakebold
