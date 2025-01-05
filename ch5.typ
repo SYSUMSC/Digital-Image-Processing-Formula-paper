@@ -5,6 +5,7 @@
 
 // #image("./img/txfy.png",height: 10%)
 建模图像退化为用h算子和f运算,加上加性噪声$eta$,生成一幅退化图像g\
+图像增强(调对比度,亮度,滤波等等)主观,复原客观\
 空域：$g(x, y) =(h star f)(x, y) + eta(x, y)$  ;
 频域：$G(u, v) = H(u, v) F(u, v) +N(u, v)$
 
@@ -35,22 +36,21 @@ P_p, comma z = 0;
 
 === 均值滤波
 $S_(x y)$表示中心在(x,y)，尺寸为$𝑚 times n$的矩形子图像窗口\
-算术平均 $hat(f)(x, y) = frac(1, m n) sum_((r, c) in S_(x y)) g(r, c)$;
-;平滑图像的局部变化;在模糊了结果的同时减少了噪声\
-几何平均滤波 $hat(f)(x, y) = [ product_((r, c) in S_(x y)) g(r, c) ]^frac(1, m n)$ ;
+*算术平均* $hat(f)(x, y) = frac(1, m n) sum_((r, c) in S_(x y)) g(r, c)$;平滑图像的局部变化;在模糊了结果的同时减少了噪声\
+*几何平均滤波* $hat(f)(x, y) = [ product_((r, c) in S_(x y)) g(r, c) ]^frac(1, m n)$ ;
 平滑度可以与算术均值相比;图像细节丢失更少\
-谐波平均滤波 $hat(f)(x, y) = frac(m n, sum_((r comma c) in S_(x y)) frac(1, g(r comma c)))$ 适用“盐粒” 和 类似高斯噪声的噪声，不适用于“胡椒”;\
+*谐波平均滤波* $hat(f)(x, y) = frac(m n, sum_((r comma c) in S_(x y)) frac(1, g(r comma c)))$ 适用“盐粒” 和 类似高斯噪声的噪声，不适用于“胡椒”;\
 
-反谐波平均 $hat(f)(x, y) = (sum_((r, c) in S_(x y)) g(r, c)^(Q + 1))/( sum_((r, c) in S_(x y)) g(r, c)^Q)$ Q称为滤波器的阶数,`>0`用于胡椒, `<0`用于盐粒,`=0`变为算数平均,`=-1`变为谐波平均
+*反谐波平均* $hat(f)(x, y) = (sum_((r, c) in S_(x y)) g(r, c)^(Q + 1))/( sum_((r, c) in S_(x y)) g(r, c)^Q)$ Q称为滤波器的阶数,`>0`灰度大的贡献大,用于胡椒, `<0`灰度小的贡献大用于盐粒,`=0`变为算数平均,`=-1`变为谐波平均
 
 ==== 统计排序
 
-中值 $hat(f) (x , y) =m e d i a n_((r , c) in S_(x y)) {g (r , c)}$
+*中值* $hat(f) (x , y) =m e d i a n_((r , c) in S_(x y)) {g (r , c)}$
 与大小相同的线性平滑(均值)滤波相比，有效地降低某些随机噪声，且模糊度要小得多;对于单极和双极冲激噪声效果好\
-最大值 $hat(f)(x, y) = max_((r, c) in S_(x y)) {g (r , c)}$ 发现最亮点;过滤胡椒\
-最小值 $hat(f)(x, y) = min_((r, c) in S_(x y)) {g (r , c)}$ 发现最暗点;过滤盐粒\
-中点$hat(f)(x, y) = frac(1, 2)  [ max_((r, c) in S_(x y))  {g(r, c) } + min_((r, c) in S_(x y))  {g(r, c) }  ]$结合了统计排序滤波器和平均滤波器;适合处理随机分布的噪声，如高斯噪声和均匀噪声\
-修正后的阿尔法均值滤波 $hat(f)(x, y) = frac(1, m n - d) sum_((r, c) in S_(x y)) g_R (r, c)$\
+*最大值* $hat(f)(x, y) = max_((r, c) in S_(x y)) {g (r , c)}$ 发现最亮点;过滤胡椒\
+*最小值* $hat(f)(x, y) = min_((r, c) in S_(x y)) {g (r , c)}$ 发现最暗点;过滤盐粒\
+*中点*$hat(f)(x, y) = frac(1, 2)  [ max_((r, c) in S_(x y))  {g(r, c) } + min_((r, c) in S_(x y))  {g(r, c) }  ]$结合了统计排序滤波器和平均滤波器;适合处理随机分布的噪声，如高斯噪声和均匀噪声\
+*修正后的阿尔法均值* $hat(f)(x, y) = frac(1, m n - d) sum_((r, c) in S_(x y)) g_R (r, c)$\
 在𝑆邻域内去掉𝑔(r, c)最高灰度值的𝑑/2和最低灰度值的d/2 $g_R (r, c)$代表剩余的$𝑚 𝑛 - 𝑑$个像素.$d=0$变为算数平均;$d=m n-1$变为中值;当 d 取其它值时，适用于包括多种噪声的情况下，例如高斯噪声和椒盐噪声混合的情况。
 
 ==== 自适应
