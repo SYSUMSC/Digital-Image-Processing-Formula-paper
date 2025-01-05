@@ -19,7 +19,7 @@ $F(u) = sum_(x = 0)^(M - 1) f(x) e^(-j 2 pi u x \/ M)$ ; $f(x) = frac(1, M) sum_
 
 $sum_(k = 0)^(n - 1) e^(-i 2 pi frac(m k, n)) =brace.l
 mat(delim: #none, n comma, "如果 " m equiv 0(upright(m o d) n);
-0 comma, "否则",,)$
+0 comma, "否则",,)$;$integral_(-infinity)^(+infinity) e^(-x^2) d x = sqrt(pi)$
 
 
 == 二变量函数的傅里叶变换
