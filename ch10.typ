@@ -123,7 +123,7 @@ $Q = cases(delim: "{", upright(t r u e) " " sigma > alpha and 0 < m < b, upright
 1把满足Q(Ri)=FALSE的任何Ri区域分离为四个不相交的子象限区域；\
 2无法进一步分离时，聚合满足谓词逻辑$Q(R_j union R_k) = "TRUE"$的任意两个邻接区域Rj和Rk;\
 3在无法进一步聚合时停止。
-#image("./img/分离聚合.png",height: 5%)
+#image("./img/分离聚合.png",height: 8%)
 == 分水岭变换
 
 //P585
@@ -135,3 +135,20 @@ $Q = cases(delim: "{", upright(t r u e) " " sigma > alpha and 0 < m < b, upright
 6. 水坝构建：当水位上升到某个点时，如果发现有多个汇水盆地的水流可能溢出，算法会在这些汇水盆地之间构建水坝（即分割线），以阻止水流混合。\
 缺点:受噪声影响大;容易过度分割
 
+== 分割中运动的使用
+
+基本方法: 逐像素地比较 $t_i$ 和 $t_j$ 两帧图像 $f(x, y)$ 可以获得相应的差值图像：$d_(i j)(x, y) = cases(1 " " lr(|f(x comma y comma t_i) - f(x comma y comma t_j)|) > T,0 " " "其他")$ 其中 $T$ 是一个非负阈值。
+
+累积差值:将参考图像  $R(x, y)$  与序列中的每个后续图像进行比较。当当前图像中的像素与参考图像*不同*时，累积差分图像中每个像素的计数器会增加。在检查第  $t$  帧时，累积差分图像显示该像素与参考图像中对应像素的差异次数。
+
+绝对ADI: $A_k (x, y) =
+cases( A_(k - 1)(x comma y) + 1 " " "如果 "|R(x comma y) - f(x comma y comma t_x)| > T,
+A_(k - 1)(x comma y) " " "否则")$
+
+正ADI:$P_k (x, y) =
+cases( P_(k - 1)(x comma y) + 1 " " "如果 " R(x comma y) - f(x comma y comma t_x) > T,
+P_(k - 1)(x comma y) " " "否则")$
+
+负ADI:$N_k (x, y) =
+cases( N_(k - 1)(x comma y) + 1 " " "如果 " R(x comma y) - f(x comma y comma t_x) < - T,
+N_(k - 1)(x comma y) " " "否则")$
