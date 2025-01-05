@@ -5,7 +5,7 @@
   columns: 2
 )
 //调整这个确保在4页打印
-#set text(0.59em)
+#set text(0.587em)
 //伪粗体
 #import "@preview/cuti:0.2.1": show-cn-fakebold
 #show: show-cn-fakebold
