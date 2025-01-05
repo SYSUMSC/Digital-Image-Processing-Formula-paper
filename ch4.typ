@@ -10,20 +10,24 @@
 采样定理:采样率$f_s$应大于等于信号最高频率的两倍，即$f_s>2f_max$，否则会出现混叠现象。\
 
 
-== 单变量的离散傅里叶变换
+== 单变量的傅里叶变换
 
 连续 $f(t) = integral_(-infinity)^infinity F(mu) e^(j 2 pi mu t) d mu quad F(mu) = integral_(-infinity)^infinity$ ; $f(t) e^(-j 2 pi mu t) d t$\
-
 离散 $u,x in [0,M-1]$ \
-$F(u) = sum_(x = 0)^(M - 1) f(x) e^(-j 2 pi u x \/ M)$ ; $f(x) = frac(1, M) sum_(u = 0)^(M - 1) F(u) e^(j 2 pi u x \/ M)$
+$F(u) = sum_(x = 0)^(M - 1) f(x) e^(-j 2 pi u x \/ M)$ ; $f(x) = frac(1, M) sum_(u = 0)^(M - 1) F(u) e^(j 2 pi u x \/ M)$\
+冲激性质:$integral_(- oo)^oo e^(j omega t) upright(d) omega = 2 pi delta (t)$ ; $f(t) delta(t) = f(0) delta(t)$ ; $integral_(-infinity)^infinity f(t) delta(t - t_0) dif t = f(t_0)$\
+
+$sum_(k = 0)^(n - 1) e^(-i 2 pi frac(m k, n)) =brace.l
+mat(delim: #none, n comma, "如果 " m equiv 0(upright(m o d) n);
+0 comma, "否则",,)$
+
 
 == 二变量函数的傅里叶变换
 
 二维傅里叶变换是一维情形向两个方向的简单扩展\
 $F(u, v) = integral_(-infinity)^(+infinity) integral_(-infinity)^(+infinity) f(t, z) e^(-j 2 pi(u t + v z)) d t d z$ ;
 $f(t, z) = integral_(-infinity)^(+infinity) integral_(-infinity)^(+infinity) F(u, v) e^(j 2 pi(mu t + v z)) d u d v$\
-采样：$tilde(f)(t, z) = f(t, z) s_(Delta T Delta Z)(t, z) = sum_(m = - infinity)^(infinity) sum_(n = - infinity)^(infinity) f(t, z) sigma(t - m Delta T, z - n Delta Z)$
-
+采样：$tilde(f)(t, z) = f(t, z) s_(Delta T Delta Z)(t, z) = sum_(m = - infinity)^(infinity) sum_(n = - infinity)^(infinity) f(t, z) sigma(t - m Delta T, z - n Delta Z)$\
 DFT：$F(u, v) = sum_(x = 0)^(M - 1) sum_(y = 0)^(N - 1) f(x, y) e^(-j 2 pi(u x \/ M + v y \/ N))$\
 IDFT：$f(x, y) = frac(1, M N) sum_(u = 0)^(M - 1) sum_(v = 0)^(N - 1) F(u, v) e^(j 2 pi(u x \/ M + v y \/ N))$
 

@@ -28,7 +28,7 @@ CMYK->CMY: $C = C(1 - K) + K; M = M(1 - K) + K; Y = Y(1 - Y) + K$
 === HSI
 针对人们描述和解释颜色的方式开发，解除了亮度和色彩信息的联系;
 h色调(角度),s饱和度(鲜艳程度),i强度(颜色的明暗程度,平均灰度)
-#image("./img/hsi.png",height: 10%)
+// #image("./img/hsi.png",height: 10%)
 
 RGB->HSI\
 $theta=arccos(frac((R - G) +(R - B), 2 sqrt((R - G)^2 +(R - B)(G - B))))$ $H = cases(360 - theta  && G<B, theta & G>=B)$\
